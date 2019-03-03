@@ -1,0 +1,29 @@
+// fs 是file-system的简写，是文件系统的意思；
+// 在node中如果想要进行文件操作，就必须引入fs合格核心模块
+// 在fs 核心模块中，提供了所有文件操作的API
+// 例如 fs.readFile 读取文件
+
+
+//使用require方法加载fs
+var fs = require('fs');
+
+// 读取文件
+
+//第一个参数为读取文件的路径
+// 第二个参数是回调函数
+// 成功
+// data 数据  error null
+// 失败
+// data undefined error 错误对象
+
+fs.readFile("./data/data.txt",function(error,data){
+      //默认为二进制数据 0 1，二进制转为16进制
+      //通过toString方法转换
+	  
+      if(error){
+          console.log("读取文件错误")
+      }else{
+           console.log(data.toString())
+      }
+
+})
