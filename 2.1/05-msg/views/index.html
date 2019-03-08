@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>留言本</title>
+ 
+  <link rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.css">
+</head>
+<!--
+        浏览器收到html响应，从上到下依次解析，如果发现
+        link，script，img，iframe，viedo，audio 等具有src/href属性的时候，浏览器会自动对这些静态资源发起新的请求
+        在服务端中文件路径不使用相对路径，
+        使用url标识来获取
+        服务器放了/public/ 目录
+      -->
+<body>
+  <div class="header container">
+    <div class="page-header">
+      <h1>留言板 <small>Subtext for header</small></h1>
+      <a class="btn btn-success" href="/post">发表留言</a>
+    </div>
+  </div>
+  <div class="comments container">
+    <ul class="list-group">
+      {{each comments}}
+      <li class="list-group-item">{{$value.name}}说：{{$value.msg}}<span class="pull-right">{{$value.data}}</span></li>
+      {{/each}}
+   
+    </ul>
+  </div>
+</body>
+
+</html>
